@@ -36,5 +36,12 @@ namespace OTSC.LoginPage.LoginView
         public event EventHandler btnTheme;
         public event EventHandler btnLogin;
         public event EventHandler btnClose;
+
+        public void NavigatetoPage(bool theme)
+        {
+            var mainPage=new MainPage(theme);
+            mainPage.Show();
+            this.Hide();
+        }
     }
 }

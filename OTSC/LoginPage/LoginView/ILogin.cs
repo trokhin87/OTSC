@@ -18,6 +18,7 @@ namespace OTSC.LoginPage.LoginView
         public event EventHandler btnChecked;// кнопка показа пароля
         public event EventHandler btnTheme; //кнопка смены темки(темная светлая)
         public event EventHandler btnClose;//закрытие страницы
+        void NavigatetoPage(bool theme);
 
 
     }

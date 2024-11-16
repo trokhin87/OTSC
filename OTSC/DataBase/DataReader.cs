@@ -3,32 +3,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
-using System.Text.Json;
+using Newtonsoft.Json;
 using System.Threading.Tasks;
 using Npgsql;
+using System.Text.Json.Serialization;
 namespace OTSC.DataBase
 {
     public class DataReader
     {
-        public readonly NpgsqlConnection con;
-        public readonly NpgsqlCommand cmd;
-        public DataReader(string filePath) 
+        public string СonnectionString { get; }
+        public DataReader(string filePath)
         {
-            string jsonString = File.ReadAllText(filePath);
-            var config = JsonSerializer.Deserialize<ConnectTODB>(jsonString);
 
-            string connectionString = $"Host={config.Host};Port={config.Port};Username={config.Username};Password={config.Password};Database={config.Database};";
-            con = new NpgsqlConnection(connectionString);
-            cmd.Connection = con;
+            string jsonString = File.ReadAllText(filePath);
+            var config = System.Text.Json.JsonSerializer.Deserialize<ConnectTODB>(jsonString);
+            Console.WriteLine($"Deserialized config: {config.Host}, {config.Port}, {config.Username}, {config.Database}");
+
+            // Проверка на null или пустые строки
+            if (string.IsNullOrEmpty(config.Host) || string.IsNullOrEmpty(config.Port) ||
+                string.IsNullOrEmpty(config.Username) || string.IsNullOrEmpty(config.Password) ||
+                string.IsNullOrEmpty(config.Database))
+            {
+                throw new ArgumentException("One or more connection parameters are missing in the config file.");
+            }
+
+            СonnectionString = $"Host={config.Host};Port={config.Port};Username={config.Username};Password={config.Password};Database={config.Database}";
         }
-    }
+        }
     public class ConnectTODB
     {
-        internal string? Host { get; set; }
-        internal string? Port { get; set; }
-        internal string? Username { get; set; }
-        internal string? Password { get; set; }
-        internal string? Database { get; set; }
+        [JsonProperty("Host")]
+        public string? Host { get; set; }
+
+        [JsonProperty("Port")]
+        public string? Port { get; set; }
+
+        [JsonProperty("Username")]
+        public string? Username { get; set; }
+
+        [JsonProperty("Password")]
+        public string? Password { get; set; }
+
+        [JsonProperty("Database")]
+        public string? Database { get; set; }
     }
 
 }

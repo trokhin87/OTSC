@@ -14,10 +14,10 @@ namespace OTSC.LoginPage.LoginPresenter
         private readonly LoginModel.LoginModel _model;
         private readonly ILogin _view;
         private bool _isLight = true;
-        public LoginPresenter(ILogin view)
+        public LoginPresenter(ILogin view,DataReader data,string filePath)
         {
             _view = view;
-            _model = new LoginModel.LoginModel();
+            _model = new LoginModel.LoginModel(data,filePath);
 
 
             _view.btnClear += (s, e) => OnClearBtnClicked(s, e);
@@ -74,7 +74,7 @@ namespace OTSC.LoginPage.LoginPresenter
             }
 
         }
-        private void OnLoginBtnClicked(object sender,EventArgs e)
+        private async void OnLoginBtnClicked(object sender,EventArgs e)
         {
             //if (_view.Login == string.Empty || _view.Password == string.Empty)
             //{
@@ -85,8 +85,13 @@ namespace OTSC.LoginPage.LoginPresenter
                 MessageBox.Show("Введите корректные данные","Ошибка ввода",MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
+           bool isvalid=await _model.CheckAndOpenConnectionLoginAsync(_view.Login, _view.Password);
+            if(isvalid)
+            {
+                _view.NavigatetoPage(_isLight);
+            }
         }
-        private void OnRegisterBtnChecked(object sender,EventArgs e)
+        private async void OnRegisterBtnChecked(object sender,EventArgs e)
         {
             //if (_view.Login == string.Empty || _view.Password == string.Empty)
             //{
@@ -96,6 +101,11 @@ namespace OTSC.LoginPage.LoginPresenter
             {
                 MessageBox.Show("Введите корректные данные", "Ошибка ввода", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
+            }
+            bool isvalid=await _model.CheckAndOpenRegisterAsync(_view.Login, _view.Password);
+            if (isvalid)
+            {
+                _view.NavigatetoPage(_isLight);
             }
         }
     }
