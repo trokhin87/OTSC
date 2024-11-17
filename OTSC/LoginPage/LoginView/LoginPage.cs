@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using OTSC.MainPage.MainView;
 
 namespace OTSC.LoginPage.LoginView
 {
@@ -39,7 +40,7 @@ namespace OTSC.LoginPage.LoginView
 
         public void NavigatetoPage(bool theme)
         {
-            var mainPage=new MainPage(theme);
+            var mainPage=new MainPage.MainView.MainPage(theme);
             mainPage.Show();
             this.Hide();
         }
