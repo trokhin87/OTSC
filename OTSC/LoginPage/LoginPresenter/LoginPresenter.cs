@@ -13,7 +13,6 @@ namespace OTSC.LoginPage.LoginPresenter
     {
         private readonly LoginModel.LoginModel _model;
         private readonly ILogin _view;
-        private bool _isLight = true;
         public LoginPresenter(ILogin view,DataReader data,string filePath)
         {
             _view = view;
@@ -21,15 +20,15 @@ namespace OTSC.LoginPage.LoginPresenter
 
 
             _view.btnClear += (s, e) => OnClearBtnClicked(s, e);
-            _view.btnTheme += (s, e) => OnThemeBtnClicked(s, e);
             _view.btnClose += (s, e) => OnCloseBtnClicked(s, e);
             _view.btnChecked += (s, e) => OnShowBtnChecekd(s, e);
 
             _view.btnLogin += (s, e) => OnLoginBtnClicked(s, e);
             _view.btnRegister += (s, e) => OnRegisterBtnChecked(s, e);
         }
+  
         private void OnShowBtnChecekd(object sender,EventArgs e)
-        {
+        { 
             if (_view.isCheckedPass)
             {
                 _view.PasswordChar = '\0';
@@ -41,23 +40,7 @@ namespace OTSC.LoginPage.LoginPresenter
             _view.Login = string.Empty;
             _view.Password = string.Empty;
         }
-        private void OnThemeBtnClicked(object sender, EventArgs e)
-        {
-            if (_view is Form form)
-            {
-                if (_isLight)
-                {
-                    form.BackColor = Color.DimGray;
-                    _isLight = false;
-                }
-                else
-                {
-                    _isLight = true;
-                    form.BackColor = Color.LightGray;
-                }
-
-            }
-        }
+        
         private void OnCloseBtnClicked(object sender, EventArgs e)
         {
             if (_view is Form form)
@@ -88,7 +71,7 @@ namespace OTSC.LoginPage.LoginPresenter
            bool isvalid=await _model.CheckAndOpenConnectionLoginAsync(_view.Login, _view.Password);
             if(isvalid)
             {
-                _view.NavigatetoPage(_isLight);
+                _view.NavigatetoPage();
             }
         }
         private async void OnRegisterBtnChecked(object sender,EventArgs e)
@@ -105,7 +88,7 @@ namespace OTSC.LoginPage.LoginPresenter
             bool isvalid=await _model.CheckAndOpenRegisterAsync(_view.Login, _view.Password);
             if (isvalid)
             {
-                _view.NavigatetoPage(_isLight);
+                _view.NavigatetoPage();
             }
         }
     }

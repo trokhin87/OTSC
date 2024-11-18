@@ -12,7 +12,6 @@ namespace OTSC.MainPage.MainView
         public event EventHandler btnToTelegram;
         public event EventHandler btnToGenerate;
         public event EventHandler btnToEzhednevnik;
-        public event EventHandler<bool> btnTheme;
         public void NavigateToGenerate();
         public void NavigateToEzhednevnik();
     }

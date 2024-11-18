@@ -24,7 +24,6 @@ namespace OTSC.LoginPage.LoginView
             btn_Register.Click += (s, e) => btnRegister?.Invoke(this, EventArgs.Empty);
             btn_showPass.CheckedChanged += (s, e) => btnChecked?.Invoke(this, EventArgs.Empty);
             clear_Button.Click += (s, e) => btnClear?.Invoke(this, EventArgs.Empty);
-            pic_Theme.Click += (s, e) => btnTheme?.Invoke(this, EventArgs.Empty);
             btn_Close.Click += (s, e) => btnClose?.Invoke(this, EventArgs.Empty);
 
 
@@ -34,13 +33,13 @@ namespace OTSC.LoginPage.LoginView
         public event EventHandler btnRegister;
         public event EventHandler btnClear;
         public event EventHandler btnChecked;
-        public event EventHandler btnTheme;
         public event EventHandler btnLogin;
         public event EventHandler btnClose;
 
-        public void NavigatetoPage(bool theme)
+        public void NavigatetoPage()
         {
-            var mainPage=new MainPage.MainView.MainPage(theme);
+            var mainPage=new MainPage.MainView.MainPage();
+            var presenterMain = new MainPage.MainPresenter.MainPresenter(mainPage);
             mainPage.Show();
             this.Hide();
         }

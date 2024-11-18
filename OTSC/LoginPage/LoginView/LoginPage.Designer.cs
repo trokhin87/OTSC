@@ -49,11 +49,10 @@
             btn_showPass = new Guna.UI2.WinForms.Guna2CheckBox();
             clear_Button = new Guna.UI2.WinForms.Guna2Button();
             btn_Register = new Guna.UI2.WinForms.Guna2Button();
-            pic_Theme = new PictureBox();
             btn_Close = new PictureBox();
             btn_Login = new Guna.UI2.WinForms.Guna2Button();
+            linkLabel1 = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)icon).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pic_Theme).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_Close).BeginInit();
             SuspendLayout();
             // 
@@ -205,16 +204,6 @@
             btn_Register.TabIndex = 9;
             btn_Register.Text = "Регистрация";
             // 
-            // pic_Theme
-            // 
-            pic_Theme.Image = (Image)resources.GetObject("pic_Theme.Image");
-            pic_Theme.Location = new Point(914, 505);
-            pic_Theme.Name = "pic_Theme";
-            pic_Theme.Size = new Size(89, 55);
-            pic_Theme.SizeMode = PictureBoxSizeMode.Zoom;
-            pic_Theme.TabIndex = 10;
-            pic_Theme.TabStop = false;
-            // 
             // btn_Close
             // 
             btn_Close.Image = (Image)resources.GetObject("btn_Close.Image");
@@ -244,15 +233,25 @@
             btn_Login.TabIndex = 12;
             btn_Login.Text = "Войти";
             // 
+            // linkLabel1
+            // 
+            linkLabel1.AutoSize = true;
+            linkLabel1.Location = new Point(836, 352);
+            linkLabel1.Name = "linkLabel1";
+            linkLabel1.Size = new Size(124, 20);
+            linkLabel1.TabIndex = 13;
+            linkLabel1.TabStop = true;
+            linkLabel1.Text = "Забыли пароль?";
+            // 
             // LoginPage
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1002, 558);
+            Controls.Add(linkLabel1);
             Controls.Add(btn_Login);
             Controls.Add(btn_Close);
-            Controls.Add(pic_Theme);
             Controls.Add(btn_Register);
             Controls.Add(clear_Button);
             Controls.Add(btn_showPass);
@@ -267,7 +266,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "LoginPage";
             ((System.ComponentModel.ISupportInitialize)icon).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pic_Theme).EndInit();
             ((System.ComponentModel.ISupportInitialize)btn_Close).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -284,8 +282,8 @@
         private Guna.UI2.WinForms.Guna2CheckBox btn_showPass;
         private Guna.UI2.WinForms.Guna2Button clear_Button;
         private Guna.UI2.WinForms.Guna2Button btn_Register;
-        private PictureBox pic_Theme;
         private PictureBox btn_Close;
         private Guna.UI2.WinForms.Guna2Button btn_Login;
+        private LinkLabel linkLabel1;
     }
 }

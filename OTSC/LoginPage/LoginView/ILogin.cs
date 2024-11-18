@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,9 +16,8 @@ namespace OTSC.LoginPage.LoginView
         public event EventHandler btnRegister;//кнопка нажатия регистрации
         public event EventHandler btnClear;//кнопка очисти полей
         public event EventHandler btnChecked;// кнопка показа пароля
-        public event EventHandler btnTheme; //кнопка смены темки(темная светлая)
         public event EventHandler btnClose;//закрытие страницы
-        void NavigatetoPage(bool theme);
+        void NavigatetoPage();
 
 
     }

@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             btn_Close = new PictureBox();
-            pic_Theme = new PictureBox();
             pictureBox1 = new PictureBox();
             btn_label = new LinkLabel();
             label1 = new Label();
@@ -39,7 +38,6 @@
             label3 = new Label();
             btn_Generator = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)btn_Close).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pic_Theme).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_Ezhednevnik).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_Generator).BeginInit();
@@ -54,16 +52,6 @@
             btn_Close.SizeMode = PictureBoxSizeMode.Zoom;
             btn_Close.TabIndex = 12;
             btn_Close.TabStop = false;
-            // 
-            // pic_Theme
-            // 
-            pic_Theme.Image = (Image)resources.GetObject("pic_Theme.Image");
-            pic_Theme.Location = new Point(914, 505);
-            pic_Theme.Name = "pic_Theme";
-            pic_Theme.Size = new Size(89, 55);
-            pic_Theme.SizeMode = PictureBoxSizeMode.Zoom;
-            pic_Theme.TabIndex = 13;
-            pic_Theme.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -148,14 +136,12 @@
             Controls.Add(label1);
             Controls.Add(btn_label);
             Controls.Add(pictureBox1);
-            Controls.Add(pic_Theme);
             Controls.Add(btn_Close);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainPage";
             ((System.ComponentModel.ISupportInitialize)btn_Close).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pic_Theme).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)btn_Ezhednevnik).EndInit();
             ((System.ComponentModel.ISupportInitialize)btn_Generator).EndInit();
@@ -166,7 +152,6 @@
         #endregion
 
         private PictureBox btn_Close;
-        private PictureBox pic_Theme;
         private PictureBox pictureBox1;
         private LinkLabel btn_label;
         private Label label1;
