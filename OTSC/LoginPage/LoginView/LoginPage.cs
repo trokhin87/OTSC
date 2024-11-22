@@ -36,10 +36,10 @@ namespace OTSC.LoginPage.LoginView
         public event EventHandler btnLogin;
         public event EventHandler btnClose;
 
-        public void NavigatetoPage()
+        public void NavigatetoPage(long ID)
         {
             var mainPage=new MainPage.MainView.MainPage();
-            var presenterMain = new MainPage.MainPresenter.MainPresenter(mainPage);
+            var presenterMain = new MainPage.MainPresenter.MainPresenter(mainPage,ID);
             mainPage.Show();
             this.Hide();
         }

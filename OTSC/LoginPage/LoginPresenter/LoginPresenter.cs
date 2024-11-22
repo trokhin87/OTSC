@@ -71,7 +71,8 @@ namespace OTSC.LoginPage.LoginPresenter
            bool isvalid=await _model.CheckAndOpenConnectionLoginAsync(_view.Login, _view.Password);
             if(isvalid)
             {
-                _view.NavigatetoPage();
+                long name=long.Parse(_view.Login);
+                _view.NavigatetoPage(name);
             }
         }
         private async void OnRegisterBtnChecked(object sender,EventArgs e)
@@ -88,7 +89,8 @@ namespace OTSC.LoginPage.LoginPresenter
             bool isvalid=await _model.CheckAndOpenRegisterAsync(_view.Login, _view.Password);
             if (isvalid)
             {
-                _view.NavigatetoPage();
+                long name = long.Parse(_view.Login);
+                _view.NavigatetoPage(name);
             }
         }
     }

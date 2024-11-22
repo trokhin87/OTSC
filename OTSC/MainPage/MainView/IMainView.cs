@@ -9,10 +9,12 @@ namespace OTSC.MainPage.MainView
     public interface IMainView
     {
         public event EventHandler btnClose;
-        public event EventHandler btnToTelegram;
         public event EventHandler btnToGenerate;
         public event EventHandler btnToEzhednevnik;
-        public void NavigateToGenerate();
-        public void NavigateToEzhednevnik();
+        public event EventHandler btnProfile;
+
+        public void goToProfile(long id);
+
+
     }
 }

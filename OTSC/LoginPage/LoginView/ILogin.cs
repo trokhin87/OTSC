@@ -17,7 +17,7 @@ namespace OTSC.LoginPage.LoginView
         public event EventHandler btnClear;//кнопка очисти полей
         public event EventHandler btnChecked;// кнопка показа пароля
         public event EventHandler btnClose;//закрытие страницы
-        void NavigatetoPage();
+        void NavigatetoPage(long ID);
 
 
     }

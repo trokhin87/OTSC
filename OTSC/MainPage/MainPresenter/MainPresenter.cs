@@ -7,47 +7,28 @@ using System.Windows.Forms;
 using OTSC.MainPage.MainModel;
 using OTSC.MainPage.MainView;
 using System.Diagnostics;
+using System.Text.RegularExpressions;
 namespace OTSC.MainPage.MainPresenter
 {
     public class MainPresenter
     {
         private readonly IMainView _mainView;
-        public MainPresenter(IMainView mainView)
+        private long _id;
+        private readonly MainModel.MainModel _model=new MainModel.MainModel();
+        public MainPresenter(IMainView mainView, long ID)
         {
             _mainView = mainView;
             _mainView.btnClose += (s, e) => OnCloseBtnClick(s, e);
-            _mainView.btnToTelegram += OnTelegramBtnClick;
-            _mainView.btnToEzhednevnik += OnEzhednevnikBtnClick;
-            _mainView.btnToGenerate += OnGeneratorBtnClick;
+            _id = ID;
+            _mainView.btnProfile += OnProfileBtnClick;
 
         }
 
-        private void OnGeneratorBtnClick(object? sender, EventArgs e)
+        private void OnProfileBtnClick(object? sender, EventArgs e)
         {
-            _mainView.NavigateToGenerate();
+            _mainView.goToProfile(_id);
         }
 
-        private void OnEzhednevnikBtnClick(object? sender, EventArgs e)
-        {
-            _mainView.NavigateToEzhednevnik();
-        }
-
-        private void OnTelegramBtnClick(object? sender, EventArgs e)
-        {
-            try
-            {
-                Process.Start( new ProcessStartInfo
-                {
-                    FileName= "https://t.me/HappyBotinok_bot",
-                    UseShellExecute = true,
-                }
-                ) ;
-            }
-            catch
-            {
-                MessageBox.Show("Не удалось открыть ссылку, попробуйте QR-код", "Ошибка открытия", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
        
         private void OnCloseBtnClick(object sender,EventArgs e)

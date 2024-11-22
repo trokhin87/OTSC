@@ -12,37 +12,29 @@ namespace OTSC.MainPage.MainView
 {
     public partial class MainPage : Form, IMainView
     {
-        
+
 
         public MainPage()
         {
 
             InitializeComponent();
             btn_Close.Click += (s, e) => btnClose?.Invoke(this, EventArgs.Empty);
-            btn_Ezhednevnik.Click += (s, e) => btnToEzhednevnik?.Invoke(this, EventArgs.Empty);
-            btn_Generator.Click += (s, e) => btnToGenerate?.Invoke(this, EventArgs.Empty);
-            btn_label.Click += (s, e) => btnToTelegram?.Invoke(this, EventArgs.Empty);
-            btn_label.Links.Add(0, btn_label.Text.Length, "https://t.me/HappyBotinok_bot");
+            btn_profile.Click += (s, e) => btnProfile?.Invoke(this, EventArgs.Empty);
         }
+
 
         public event EventHandler btnClose;
-        public event EventHandler btnToTelegram;
         public event EventHandler btnToGenerate;
         public event EventHandler btnToEzhednevnik;
-        
+        public event EventHandler btnProfile;
 
-      
-
-        public void NavigateToEzhednevnik()
+        public void goToProfile(long id)
         {
-
-        }
-
-        public void NavigateToGenerate()
-        {
-            var generatorPage = new GeneratorPage.ViewGenerator.GeneratorPage();
-            generatorPage.Show();
+            var profileForm = new ProfilePage.ProfileView.ProfilePage();
+            var profilePresenter = new ProfilePage.ProfilePresenter.ProfilePresenter(id);
             this.Hide();
+            profileForm.ShowDialog();
+            this.Show();
         }
     }
 }

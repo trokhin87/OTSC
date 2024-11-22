@@ -30,17 +30,35 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             btn_Close = new PictureBox();
-            pictureBox1 = new PictureBox();
-            btn_label = new LinkLabel();
-            label1 = new Label();
-            btn_Ezhednevnik = new PictureBox();
+            panel1 = new Panel();
+            panel4 = new Panel();
+            panel3 = new Panel();
+            panel2 = new Panel();
+            pictureBox4 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            pictureBox2 = new PictureBox();
+            npgsqlDataAdapter1 = new Npgsql.NpgsqlDataAdapter();
+            npgsqlDataAdapter2 = new Npgsql.NpgsqlDataAdapter();
+            DataTableFriends = new DataGridView();
+            friend_username = new DataGridViewTextBoxColumn();
+            Date_of_Birth = new DataGridViewTextBoxColumn();
+            Interested = new DataGridViewTextBoxColumn();
+            pictureBox6 = new PictureBox();
             label2 = new Label();
+            pictureBox5 = new PictureBox();
             label3 = new Label();
-            btn_Generator = new PictureBox();
+            btn_profile = new PictureBox();
+            panel5 = new Panel();
             ((System.ComponentModel.ISupportInitialize)btn_Close).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btn_Ezhednevnik).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)btn_Generator).BeginInit();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DataTableFriends).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btn_profile).BeginInit();
+            panel5.SuspendLayout();
             SuspendLayout();
             // 
             // btn_Close
@@ -53,75 +71,186 @@
             btn_Close.TabIndex = 12;
             btn_Close.TabStop = false;
             // 
-            // pictureBox1
+            // panel1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(715, 384);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(169, 128);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 14;
-            pictureBox1.TabStop = false;
+            panel1.BackColor = Color.FromArgb(91, 112, 101);
+            panel1.Controls.Add(panel4);
+            panel1.Controls.Add(panel3);
+            panel1.Controls.Add(panel2);
+            panel1.Controls.Add(pictureBox4);
+            panel1.Controls.Add(pictureBox3);
+            panel1.Controls.Add(pictureBox2);
+            panel1.Controls.Add(btn_Close);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1004, 45);
+            panel1.TabIndex = 21;
             // 
-            // btn_label
+            // panel4
             // 
-            btn_label.AutoSize = true;
-            btn_label.Location = new Point(723, 515);
-            btn_label.Name = "btn_label";
-            btn_label.Size = new Size(149, 20);
-            btn_label.TabIndex = 15;
-            btn_label.TabStop = true;
-            btn_label.Text = "HAPPYBOTINOK_BOT";
+            panel4.BackColor = Color.FromArgb(91, 112, 101);
+            panel4.Location = new Point(0, 46);
+            panel4.Name = "panel4";
+            panel4.Size = new Size(250, 125);
+            panel4.TabIndex = 22;
             // 
-            // label1
+            // panel3
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Verdana", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
-            label1.Location = new Point(56, 501);
-            label1.Name = "label1";
-            label1.Size = new Size(613, 34);
-            label1.TabIndex = 16;
-            label1.Text = "Пользование всеми возможностями:";
+            panel3.Location = new Point(0, 44);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(250, 125);
+            panel3.TabIndex = 22;
             // 
-            // btn_Ezhednevnik
+            // panel2
             // 
-            btn_Ezhednevnik.Image = (Image)resources.GetObject("btn_Ezhednevnik.Image");
-            btn_Ezhednevnik.Location = new Point(45, 12);
-            btn_Ezhednevnik.Name = "btn_Ezhednevnik";
-            btn_Ezhednevnik.Size = new Size(303, 289);
-            btn_Ezhednevnik.SizeMode = PictureBoxSizeMode.Zoom;
-            btn_Ezhednevnik.TabIndex = 17;
-            btn_Ezhednevnik.TabStop = false;
+            panel2.Location = new Point(0, 44);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(198, 515);
+            panel2.TabIndex = 22;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(74, -2);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(124, 48);
+            pictureBox4.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox4.TabIndex = 22;
+            pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(447, 44);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(125, 62);
+            pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox3.TabIndex = 14;
+            pictureBox3.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(0, 1);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(74, 42);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 13;
+            pictureBox2.TabStop = false;
+            // 
+            // npgsqlDataAdapter1
+            // 
+            npgsqlDataAdapter1.DeleteCommand = null;
+            npgsqlDataAdapter1.InsertCommand = null;
+            npgsqlDataAdapter1.SelectCommand = null;
+            npgsqlDataAdapter1.UpdateCommand = null;
+            // 
+            // npgsqlDataAdapter2
+            // 
+            npgsqlDataAdapter2.DeleteCommand = null;
+            npgsqlDataAdapter2.InsertCommand = null;
+            npgsqlDataAdapter2.SelectCommand = null;
+            npgsqlDataAdapter2.UpdateCommand = null;
+            // 
+            // DataTableFriends
+            // 
+            DataTableFriends.BackgroundColor = SystemColors.InactiveCaption;
+            DataTableFriends.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataTableFriends.Columns.AddRange(new DataGridViewColumn[] { friend_username, Date_of_Birth, Interested });
+            DataTableFriends.GridColor = SystemColors.ActiveCaptionText;
+            DataTableFriends.Location = new Point(198, 45);
+            DataTableFriends.Name = "DataTableFriends";
+            DataTableFriends.RowHeadersWidth = 51;
+            DataTableFriends.Size = new Size(616, 389);
+            DataTableFriends.TabIndex = 23;
+            // 
+            // friend_username
+            // 
+            friend_username.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            friend_username.HeaderText = "friend_username";
+            friend_username.MinimumWidth = 6;
+            friend_username.Name = "friend_username";
+            friend_username.Width = 147;
+            // 
+            // Date_of_Birth
+            // 
+            Date_of_Birth.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Date_of_Birth.HeaderText = "Date of Birth";
+            Date_of_Birth.MinimumWidth = 6;
+            Date_of_Birth.Name = "Date_of_Birth";
+            Date_of_Birth.Width = 123;
+            // 
+            // Interested
+            // 
+            Interested.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Interested.HeaderText = "Interested";
+            Interested.MinimumWidth = 6;
+            Interested.Name = "Interested";
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Location = new Point(40, 9);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(120, 114);
+            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox6.TabIndex = 24;
+            pictureBox6.TabStop = false;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Verdana", 16.2F, FontStyle.Bold);
-            label2.Location = new Point(96, 302);
+            label2.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label2.ForeColor = Color.Transparent;
+            label2.Location = new Point(-1, 127);
             label2.Name = "label2";
-            label2.Size = new Size(217, 34);
-            label2.TabIndex = 18;
-            label2.Text = "Ежедневник";
+            label2.Size = new Size(201, 19);
+            label2.TabIndex = 24;
+            label2.Text = "Генератор поздравлений";
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(40, 158);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(120, 107);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox5.TabIndex = 23;
+            pictureBox5.TabStop = false;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Verdana", 16.2F, FontStyle.Bold);
-            label3.Location = new Point(517, 316);
+            label3.Font = new Font("Times New Roman", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            label3.ForeColor = Color.Transparent;
+            label3.Location = new Point(45, 278);
             label3.Name = "label3";
-            label3.Size = new Size(425, 34);
-            label3.TabIndex = 19;
-            label3.Text = "Генератор поздравлений";
+            label3.Size = new Size(106, 19);
+            label3.TabIndex = 25;
+            label3.Text = "Ежедневник";
             // 
-            // btn_Generator
+            // btn_profile
             // 
-            btn_Generator.Image = (Image)resources.GetObject("btn_Generator.Image");
-            btn_Generator.Location = new Point(569, 12);
-            btn_Generator.Name = "btn_Generator";
-            btn_Generator.Size = new Size(303, 289);
-            btn_Generator.SizeMode = PictureBoxSizeMode.Zoom;
-            btn_Generator.TabIndex = 20;
-            btn_Generator.TabStop = false;
+            btn_profile.Image = (Image)resources.GetObject("btn_profile.Image");
+            btn_profile.Location = new Point(0, 423);
+            btn_profile.Name = "btn_profile";
+            btn_profile.Size = new Size(158, 91);
+            btn_profile.SizeMode = PictureBoxSizeMode.Zoom;
+            btn_profile.TabIndex = 24;
+            btn_profile.TabStop = false;
+            // 
+            // panel5
+            // 
+            panel5.BackColor = Color.FromArgb(91, 112, 101);
+            panel5.Controls.Add(btn_profile);
+            panel5.Controls.Add(label3);
+            panel5.Controls.Add(pictureBox5);
+            panel5.Controls.Add(label2);
+            panel5.Controls.Add(pictureBox6);
+            panel5.Location = new Point(0, 45);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(198, 514);
+            panel5.TabIndex = 22;
             // 
             // MainPage
             // 
@@ -129,35 +258,48 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1002, 558);
-            Controls.Add(btn_Generator);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(btn_Ezhednevnik);
-            Controls.Add(label1);
-            Controls.Add(btn_label);
-            Controls.Add(pictureBox1);
-            Controls.Add(btn_Close);
+            Controls.Add(DataTableFriends);
+            Controls.Add(panel5);
+            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainPage";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainPage";
             ((System.ComponentModel.ISupportInitialize)btn_Close).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btn_Ezhednevnik).EndInit();
-            ((System.ComponentModel.ISupportInitialize)btn_Generator).EndInit();
+            panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DataTableFriends).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btn_profile).EndInit();
+            panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private PictureBox btn_Close;
-        private PictureBox pictureBox1;
-        private LinkLabel btn_label;
-        private Label label1;
-        private PictureBox btn_Ezhednevnik;
+        private Panel panel1;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox4;
+        private Panel panel2;
+        private Panel panel4;
+        private Panel panel3;
+        private Npgsql.NpgsqlDataAdapter npgsqlDataAdapter1;
+        private Npgsql.NpgsqlDataAdapter npgsqlDataAdapter2;
+        private DataGridView DataTableFriends;
+        private DataGridViewTextBoxColumn friend_username;
+        private DataGridViewTextBoxColumn Date_of_Birth;
+        private DataGridViewTextBoxColumn Interested;
+        private PictureBox pictureBox6;
         private Label label2;
+        private PictureBox pictureBox5;
         private Label label3;
-        private PictureBox btn_Generator;
+        private PictureBox btn_profile;
+        private Panel panel5;
     }
 }
