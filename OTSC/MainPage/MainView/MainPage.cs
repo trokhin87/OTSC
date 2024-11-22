@@ -31,7 +31,7 @@ namespace OTSC.MainPage.MainView
         public void goToProfile(long id)
         {
             var profileForm = new ProfilePage.ProfileView.ProfilePage();
-            var profilePresenter = new ProfilePage.ProfilePresenter.ProfilePresenter(id);
+            var profilePresenter = new ProfilePage.ProfilePresenter.ProfilePresenter(id,profileForm);
             this.Hide();
             profileForm.ShowDialog();
             this.Show();

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace OTSC.ProfilePage.ProfilePresenter
 {
@@ -15,45 +16,68 @@ namespace OTSC.ProfilePage.ProfilePresenter
     {
         private long _id;
         private readonly IProfileView _profileView;
-        private readonly ProfileModel.ProfileModel _profileModel;
-        public ProfilePresenter(long ID) 
+        private readonly ProfileModel.ProfileModel _profileModel=new ProfileModel.ProfileModel();
+        public ProfilePresenter(long ID,IProfileView view) 
         {
             _id = ID;
-
+            _profileView = view;
+            _profileView.btnToTelegram +=(s,e)=> OnLinkBtnClicked(s,e);
+            _profileView.btnBack += (s, e) => OnBackBtnClicked(s,e);
+            _profileView.btnClose += (s, e) => OnCloseBtnClicked(s, e);
+            _profileView.btnSaveMail += OnMailBtnClick;
+            _profileView.btnSavePass += OnPasswordBtnClick;
         }
-        //private async void onSendMailCLick(object? sender, EventArgs e)
-        //{
-        //    string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-        //    if (_mainView.mail == string.Empty)
-        //    {
-        //        MessageBox.Show("Заполните поле, подтверждающие почту", "Ошибка записи", MessageBoxButtons.OK, MessageBoxIcon.None);
-        //    }
-        //    if (Regex.IsMatch(_mainView.mail, emailPattern))
-        //    {
-        //        bool cool = await _model.IsSend(_id, _mainView.mail);
-        //        if (cool)
-        //        {
-        //            MessageBox.Show("Успешно сохраненно", "Успех");
-        //            _mainView.DropVisible();
-        //        }
 
-        //    }
-        //}
-        //private void OnTelegramBtnClick(object? sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        Process.Start(new ProcessStartInfo
-        //        {
-        //            FileName = "https://t.me/HappyBotinok_bot",
-        //            UseShellExecute = true,
-        //        }
-        //        );
-        //    }
-        //    catch
-        //    {
-        //        MessageBox.Show("Не удалось открыть ссылку, попробуйте QR-код", "Ошибка открытия", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
+        private async void OnMailBtnClick(object? sender, EventArgs e)
+        {
+            var emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            var regex = new Regex(emailPattern);
+            if (regex.IsMatch(_profileView.textMail))
+            {
+                bool isGood = await _profileModel.IsSend(_id, _profileView.textMail);
+                if (isGood)
+                {
+                    MessageBox.Show("Почта успешно сохранена", "Успех", MessageBoxButtons.OK);
+                }
+            }
+            else MessageBox.Show("Введены некоректные данные почты", "Неудача", MessageBoxButtons.OK);
+        }
+
+        private void OnLinkBtnClicked(object sender,EventArgs e)
+        {
+            _profileView.openLink();
+        }
+        private void OnBackBtnClicked(object sender,EventArgs e)
+        {
+            _profileView.goBack();
+        }
+        private void OnCloseBtnClicked(object sender,EventArgs e)
+        {
+            if (_profileView is Form form)
+            {
+                var result = MessageBox.Show
+                    (
+                        "Вы уверены, что хотите выйти из приложения?",
+                        "Подтверждение закрытия",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question
+                    );
+                if (result == DialogResult.Yes) { Application.Exit(); }
+
+            }
+        }
+        private async void OnPasswordBtnClick(object? sender,EventArgs e)
+        {
+            
+            if (_profileView.textPassword == string.Empty || _profileView.textPasswordAgain == string.Empty)
+            {
+                MessageBox.Show("Введите данные","Неккоректный ввод",MessageBoxButtons.OK);
+            }
+            bool isgood = await _profileModel.RewritePass(_id, _profileView.textPassword, _profileView.textPasswordAgain);
+            if (isgood)
+            {
+                MessageBox.Show("Пароль успешно изменен", "Успех", MessageBoxButtons.OK);
+            }
+        }
     }
 }

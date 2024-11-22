@@ -13,9 +13,11 @@ namespace OTSC.ProfilePage.ProfileView
         public string textMail { get; set; }
         public string textPassword { get; set; }
         public string textPasswordAgain { get; set; }
-        public event EventHandler btnSave;
+        public event EventHandler btnSavePass;
         public event EventHandler btnToTelegram;
+        public event EventHandler btnSaveMail;
 
         public void goBack();
+        public void openLink();
     }
 }
