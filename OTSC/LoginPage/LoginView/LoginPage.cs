@@ -17,6 +17,7 @@ namespace OTSC.LoginPage.LoginView
         public string Password { get => txtPassword.Text; set => txtPassword.Text = value; }
         public char PasswordChar { get => txtPassword.PasswordChar; set => txtPassword.PasswordChar = value; }
         public bool isCheckedPass { get => btn_showPass.Checked; set => btn_showPass.Checked = value; }
+
         public LoginPage()
         {
             InitializeComponent();
@@ -25,6 +26,7 @@ namespace OTSC.LoginPage.LoginView
             btn_showPass.CheckedChanged += (s, e) => btnChecked?.Invoke(this, EventArgs.Empty);
             clear_Button.Click += (s, e) => btnClear?.Invoke(this, EventArgs.Empty);
             btn_Close.Click += (s, e) => btnClose?.Invoke(this, EventArgs.Empty);
+            label_mail.Click += (s, e) => btnSendPassword?.Invoke(this, EventArgs.Empty);
 
 
 
@@ -35,6 +37,7 @@ namespace OTSC.LoginPage.LoginView
         public event EventHandler btnChecked;
         public event EventHandler btnLogin;
         public event EventHandler btnClose;
+        public event EventHandler btnSendPassword;
 
         public void NavigatetoPage(long ID)
         {
@@ -43,5 +46,11 @@ namespace OTSC.LoginPage.LoginView
             mainPage.Show();
             this.Hide();
         }
+        public void SuccessMessage(string mail)
+        {
+            label_info.Text =$"Новый пароль отправлен на почту: {mail}"; 
+            label_info.Visible = true;
+        }
+
     }
 }

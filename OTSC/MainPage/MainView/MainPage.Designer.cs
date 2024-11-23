@@ -40,9 +40,6 @@
             npgsqlDataAdapter1 = new Npgsql.NpgsqlDataAdapter();
             npgsqlDataAdapter2 = new Npgsql.NpgsqlDataAdapter();
             DataTableFriends = new DataGridView();
-            friend_username = new DataGridViewTextBoxColumn();
-            Date_of_Birth = new DataGridViewTextBoxColumn();
-            Interested = new DataGridViewTextBoxColumn();
             pictureBox6 = new PictureBox();
             label2 = new Label();
             pictureBox5 = new PictureBox();
@@ -156,36 +153,12 @@
             // 
             DataTableFriends.BackgroundColor = SystemColors.InactiveCaption;
             DataTableFriends.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataTableFriends.Columns.AddRange(new DataGridViewColumn[] { friend_username, Date_of_Birth, Interested });
             DataTableFriends.GridColor = SystemColors.ActiveCaptionText;
             DataTableFriends.Location = new Point(198, 45);
             DataTableFriends.Name = "DataTableFriends";
             DataTableFriends.RowHeadersWidth = 51;
-            DataTableFriends.Size = new Size(616, 389);
+            DataTableFriends.Size = new Size(481, 397);
             DataTableFriends.TabIndex = 23;
-            // 
-            // friend_username
-            // 
-            friend_username.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            friend_username.HeaderText = "friend_username";
-            friend_username.MinimumWidth = 6;
-            friend_username.Name = "friend_username";
-            friend_username.Width = 147;
-            // 
-            // Date_of_Birth
-            // 
-            Date_of_Birth.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            Date_of_Birth.HeaderText = "Date of Birth";
-            Date_of_Birth.MinimumWidth = 6;
-            Date_of_Birth.Name = "Date_of_Birth";
-            Date_of_Birth.Width = 123;
-            // 
-            // Interested
-            // 
-            Interested.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Interested.HeaderText = "Interested";
-            Interested.MinimumWidth = 6;
-            Interested.Name = "Interested";
             // 
             // pictureBox6
             // 
@@ -292,9 +265,6 @@
         private Npgsql.NpgsqlDataAdapter npgsqlDataAdapter1;
         private Npgsql.NpgsqlDataAdapter npgsqlDataAdapter2;
         private DataGridView DataTableFriends;
-        private DataGridViewTextBoxColumn friend_username;
-        private DataGridViewTextBoxColumn Date_of_Birth;
-        private DataGridViewTextBoxColumn Interested;
         private PictureBox pictureBox6;
         private Label label2;
         private PictureBox pictureBox5;

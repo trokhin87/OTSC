@@ -36,5 +36,10 @@ namespace OTSC.MainPage.MainView
             profileForm.ShowDialog();
             this.Show();
         }
+        public void SetFriendList(DataTable table)
+        {
+            DataTableFriends.DataSource= table;
+        }
+
     }
 }
