@@ -22,12 +22,13 @@ namespace OTSC.MainPage.MainPresenter
             _mainView.btnClose += (s, e) => OnCloseBtnClick(s, e);
             _id = ID;
             _mainView.btnProfile += OnProfileBtnClick;
-            _ = LoadFriendsAsync();
+            _mainView.btnToGenerate +=(s,e) =>LoadFriendsAsync(s,e);
 
         }
 
-        private async Task LoadFriendsAsync()
+        private async Task LoadFriendsAsync(object sender,EventArgs e)
         {
+            _mainView.UpdateVisible();
             try
             {
                 DataTable friends = await _model.GetFriedns(_id); // Запрос данных у модели

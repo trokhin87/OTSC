@@ -17,7 +17,17 @@ namespace OTSC.MainPage.MainView
         public void goToProfile(long id);
 
         public void SetFriendList(DataTable table);
+        public void UpdateVisible();
 
+
+
+        public event EventHandler btnAdd;
+        public event EventHandler btnClear;
+        public event EventHandler btnUpdate;
+        public event EventHandler btnDelete;
+        public string friendName { get; set; }
+        public string interested { get; set; }
+        public DateTime selectedTime { get; set; }
 
     }
 }
