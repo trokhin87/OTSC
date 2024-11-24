@@ -20,6 +20,7 @@ namespace OTSC.MainPage.MainView
             InitializeComponent();
             btn_Close.Click += (s, e) => btnClose?.Invoke(this, EventArgs.Empty);
             btn_profile.Click += (s, e) => btnProfile?.Invoke(this, EventArgs.Empty);
+            btn_generator.Click += (s, e) => btnToGenerate?.Invoke(this, EventArgs.Empty);
         }
 
 

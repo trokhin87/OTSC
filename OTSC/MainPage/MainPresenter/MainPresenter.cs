@@ -30,7 +30,7 @@ namespace OTSC.MainPage.MainPresenter
         {
             try
             {
-                DataTable friends = await _model.GetFriedns(); // Запрос данных у модели
+                DataTable friends = await _model.GetFriedns(_id); // Запрос данных у модели
                 if (friends != null)
                 {
                     _mainView.SetFriendList(friends); // Передача данных во View

@@ -74,7 +74,6 @@ namespace OTSC.LoginPage.LoginModel
 
                     // Выполняем вставку данных
                     int rowsAffected = await insertCommand.ExecuteNonQueryAsync();
-
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Регистрация прошла успешно!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);

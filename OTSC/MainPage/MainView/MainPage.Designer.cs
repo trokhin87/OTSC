@@ -39,23 +39,25 @@
             pictureBox2 = new PictureBox();
             npgsqlDataAdapter1 = new Npgsql.NpgsqlDataAdapter();
             npgsqlDataAdapter2 = new Npgsql.NpgsqlDataAdapter();
-            DataTableFriends = new DataGridView();
-            pictureBox6 = new PictureBox();
+            btn_generator = new PictureBox();
             label2 = new Label();
-            pictureBox5 = new PictureBox();
+            btn_ezhednevnik = new PictureBox();
             label3 = new Label();
             btn_profile = new PictureBox();
             panel5 = new Panel();
+            mainPanel = new Panel();
+            DataTableFriends = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)btn_Close).BeginInit();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)DataTableFriends).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btn_generator).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)btn_ezhednevnik).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btn_profile).BeginInit();
             panel5.SuspendLayout();
+            mainPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DataTableFriends).BeginInit();
             SuspendLayout();
             // 
             // btn_Close
@@ -149,26 +151,15 @@
             npgsqlDataAdapter2.SelectCommand = null;
             npgsqlDataAdapter2.UpdateCommand = null;
             // 
-            // DataTableFriends
+            // btn_generator
             // 
-            DataTableFriends.BackgroundColor = SystemColors.InactiveCaption;
-            DataTableFriends.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            DataTableFriends.GridColor = SystemColors.ActiveCaptionText;
-            DataTableFriends.Location = new Point(198, 45);
-            DataTableFriends.Name = "DataTableFriends";
-            DataTableFriends.RowHeadersWidth = 51;
-            DataTableFriends.Size = new Size(481, 397);
-            DataTableFriends.TabIndex = 23;
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
-            pictureBox6.Location = new Point(40, 9);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(120, 114);
-            pictureBox6.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox6.TabIndex = 24;
-            pictureBox6.TabStop = false;
+            btn_generator.Image = (Image)resources.GetObject("btn_generator.Image");
+            btn_generator.Location = new Point(40, 9);
+            btn_generator.Name = "btn_generator";
+            btn_generator.Size = new Size(120, 114);
+            btn_generator.SizeMode = PictureBoxSizeMode.Zoom;
+            btn_generator.TabIndex = 24;
+            btn_generator.TabStop = false;
             // 
             // label2
             // 
@@ -181,15 +172,15 @@
             label2.TabIndex = 24;
             label2.Text = "Генератор поздравлений";
             // 
-            // pictureBox5
+            // btn_ezhednevnik
             // 
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
-            pictureBox5.Location = new Point(40, 158);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(120, 107);
-            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox5.TabIndex = 23;
-            pictureBox5.TabStop = false;
+            btn_ezhednevnik.Image = (Image)resources.GetObject("btn_ezhednevnik.Image");
+            btn_ezhednevnik.Location = new Point(40, 158);
+            btn_ezhednevnik.Name = "btn_ezhednevnik";
+            btn_ezhednevnik.Size = new Size(120, 107);
+            btn_ezhednevnik.SizeMode = PictureBoxSizeMode.Zoom;
+            btn_ezhednevnik.TabIndex = 23;
+            btn_ezhednevnik.TabStop = false;
             // 
             // label3
             // 
@@ -217,13 +208,36 @@
             panel5.BackColor = Color.FromArgb(91, 112, 101);
             panel5.Controls.Add(btn_profile);
             panel5.Controls.Add(label3);
-            panel5.Controls.Add(pictureBox5);
+            panel5.Controls.Add(btn_ezhednevnik);
             panel5.Controls.Add(label2);
-            panel5.Controls.Add(pictureBox6);
+            panel5.Controls.Add(btn_generator);
             panel5.Location = new Point(0, 45);
             panel5.Name = "panel5";
             panel5.Size = new Size(198, 514);
             panel5.TabIndex = 22;
+            // 
+            // mainPanel
+            // 
+            mainPanel.Controls.Add(DataTableFriends);
+            mainPanel.Location = new Point(198, 44);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new Size(805, 515);
+            mainPanel.TabIndex = 23;
+            // 
+            // DataTableFriends
+            // 
+            DataTableFriends.AllowUserToAddRows = false;
+            DataTableFriends.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DataTableFriends.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
+            DataTableFriends.BackgroundColor = Color.Gainsboro;
+            DataTableFriends.BorderStyle = BorderStyle.None;
+            DataTableFriends.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataTableFriends.Location = new Point(0, 0);
+            DataTableFriends.Name = "DataTableFriends";
+            DataTableFriends.RowHeadersVisible = false;
+            DataTableFriends.RowHeadersWidth = 51;
+            DataTableFriends.Size = new Size(712, 418);
+            DataTableFriends.TabIndex = 0;
             // 
             // MainPage
             // 
@@ -231,7 +245,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Gainsboro;
             ClientSize = new Size(1002, 558);
-            Controls.Add(DataTableFriends);
+            Controls.Add(mainPanel);
             Controls.Add(panel5);
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
@@ -243,12 +257,13 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)DataTableFriends).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btn_generator).EndInit();
+            ((System.ComponentModel.ISupportInitialize)btn_ezhednevnik).EndInit();
             ((System.ComponentModel.ISupportInitialize)btn_profile).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            mainPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)DataTableFriends).EndInit();
             ResumeLayout(false);
         }
 
@@ -264,12 +279,13 @@
         private Panel panel3;
         private Npgsql.NpgsqlDataAdapter npgsqlDataAdapter1;
         private Npgsql.NpgsqlDataAdapter npgsqlDataAdapter2;
-        private DataGridView DataTableFriends;
-        private PictureBox pictureBox6;
+        private PictureBox btn_generator;
         private Label label2;
-        private PictureBox pictureBox5;
+        private PictureBox btn_ezhednevnik;
         private Label label3;
         private PictureBox btn_profile;
         private Panel panel5;
+        private Panel mainPanel;
+        private DataGridView DataTableFriends;
     }
 }
