@@ -33,9 +33,17 @@ namespace OTSC.MainPage.MainPresenter
             _mainView.btnDelete += OnDeleteBtnClicked;
         }
 
-        private void OnDeleteBtnClicked(object? sender, EventArgs e)
+        private async void OnDeleteBtnClicked(object? sender, EventArgs e)
         {
-            
+            if (_mainView.interested == string.Empty || _mainView.friendName == string.Empty)
+            {
+                MessageBox.Show("Введите данные о друге", "Ошибка заполнения данных", MessageBoxButtons.OK);
+            }
+            bool isCool = await _model.DeleteFriendAsync(_id, _mainView.friendName, _mainView.selectedTime, _mainView.interested);
+            if (isCool)
+            {
+                await LoadFriendsAsync(sender, e);
+            }
         }
 
         private void OnUpdateBtnClicked(object? sender, EventArgs e)
@@ -43,9 +51,17 @@ namespace OTSC.MainPage.MainPresenter
             throw new NotImplementedException();
         }
 
-        private void OnAddBtnClicked(object? sender, EventArgs e)
+        private async void OnAddBtnClicked(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (_mainView.interested == string.Empty || _mainView.friendName == string.Empty)
+            {
+                MessageBox.Show("Введите данные о друге","Ошибка заполнения данных",MessageBoxButtons.OK);
+            }
+            bool isCool = await _model.AddFriendAsync(_id, _mainView.friendName, _mainView.selectedTime, _mainView.interested);
+            if (isCool)
+            {
+                await LoadFriendsAsync(sender, e);
+            }
         }
 
 
