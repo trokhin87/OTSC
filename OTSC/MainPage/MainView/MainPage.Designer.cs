@@ -439,7 +439,7 @@
             DataTableFriends.AllowUserToAddRows = false;
             DataTableFriends.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DataTableFriends.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
-            DataTableFriends.BackgroundColor = Color.LightGray;
+            DataTableFriends.BackgroundColor = Color.Gainsboro;
             DataTableFriends.BorderStyle = BorderStyle.None;
             DataTableFriends.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             DataTableFriends.Location = new Point(0, 0);

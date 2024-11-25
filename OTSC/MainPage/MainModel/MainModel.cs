@@ -43,5 +43,10 @@ namespace OTSC.MainPage.MainModel
                 return null;
             }
         }
+
+        //public async Task<bool> AddFriendAsync(long id, string username, DateTime dateTime, string interest)
+        //{
+
+        //}
     }
 }

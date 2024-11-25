@@ -25,6 +25,8 @@ namespace OTSC.MainPage.MainView
             btn_add.Click += (s, e) => btnAdd?.Invoke(this, EventArgs.Empty);
             btn_delete.Click += (s, e) => btnDelete?.Invoke(this, EventArgs.Empty);
             btn_update.Click += (s, e) => btnUpdate?.Invoke(this, EventArgs.Empty);
+            ClearBtn.Click += (s, e) => btnClear?.Invoke(this, EventArgs.Empty);
+            DataTableFriends.SelectionChanged += (s, e) => cellStr?.Invoke(DataTableFriends,  e);
         }
 
         public string friendName { get => txt_name.Text; set => txt_name.Text=value; }
@@ -39,7 +41,10 @@ namespace OTSC.MainPage.MainView
         public event EventHandler btnClear;
         public event EventHandler btnUpdate;
         public event EventHandler btnDelete;
+        public event EventHandler cellStr;
 
+
+        //переход на страницу профиля
         public void goToProfile(long id)
         {
             var profileForm = new ProfilePage.ProfileView.ProfilePage();
@@ -48,11 +53,16 @@ namespace OTSC.MainPage.MainView
             profileForm.ShowDialog();
             this.Show();
         }
+
+        //вывод данных в таблицу
         public void SetFriendList(DataTable table)
         {
             DataTableFriends.DataSource = table;
         }
+        
 
+
+        //Делаем видимость страницы трушной
         public void UpdateVisible()
         {
             txt_interes.Visible = true;
@@ -66,6 +76,13 @@ namespace OTSC.MainPage.MainView
             btn_update.Visible = true;
             ClearBtn.Visible = true;
             DataTableFriends.Visible = true;
+        }
+        //очистка полей
+        public void ClearLines()
+        {
+            txt_interes.Text=string.Empty;
+            txt_name.Text=string.Empty;
+            date_picker.Value=DateTime.Now;
         }
     }
 }

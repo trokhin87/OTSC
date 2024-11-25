@@ -22,10 +22,69 @@ namespace OTSC.MainPage.MainPresenter
             _mainView.btnClose += (s, e) => OnCloseBtnClick(s, e);
             _id = ID;
             _mainView.btnProfile += OnProfileBtnClick;
-            _mainView.btnToGenerate +=(s,e) =>LoadFriendsAsync(s,e);
 
+
+
+            _mainView.btnToGenerate +=(s,e) =>LoadFriendsAsync(s,e);
+            _mainView.btnClear += OnClearBtnClicked;
+            _mainView.cellStr += OnCellBtnClicked;
+            _mainView.btnAdd += OnAddBtnClicked;
+            _mainView.btnUpdate += OnUpdateBtnClicked;
+            _mainView.btnDelete += OnDeleteBtnClicked;
         }
 
+        private void OnDeleteBtnClicked(object? sender, EventArgs e)
+        {
+            
+        }
+
+        private void OnUpdateBtnClicked(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void OnAddBtnClicked(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        //выбор колонки из dataTable
+        private void OnCellBtnClicked(object? sender, EventArgs e)
+        {
+            // Проверяем, что sender — это DataGridView
+            if (sender is DataGridView dataGridView && dataGridView.CurrentRow != null)
+            {
+                // Получаем данные из текущей строки
+                var selectedRow = dataGridView.CurrentRow;
+                if (selectedRow.Cells["friend_username"].Value != null)
+                {
+                    _mainView.friendName = selectedRow.Cells["friend_username"].Value.ToString();
+                }
+
+                if (selectedRow.Cells["date_of_birth"].Value != null)
+                {
+                    _mainView.selectedTime = Convert.ToDateTime(selectedRow.Cells["date_of_birth"].Value);
+                }
+
+                if (selectedRow.Cells["interested"].Value != null)
+                {
+                    _mainView.interested = selectedRow.Cells["interested"].Value.ToString();
+                }
+            }
+        }
+
+
+
+
+        //нажатие кнопки очистки
+        private void OnClearBtnClicked(object? sender, EventArgs e)
+        {
+            _mainView.ClearLines();
+        }
+
+
+        //подсос данных из бд
         private async Task LoadFriendsAsync(object sender,EventArgs e)
         {
             _mainView.UpdateVisible();
@@ -42,13 +101,20 @@ namespace OTSC.MainPage.MainPresenter
                 MessageBox.Show($"Ошибка загрузки данных: {ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
+
+
+
+
+        //открытие страницы профиля
         private void OnProfileBtnClick(object? sender, EventArgs e)
         {
             _mainView.goToProfile(_id);
         }
 
 
-       
+       //закрытие приложения
         private void OnCloseBtnClick(object sender,EventArgs e)
         {
             if (_mainView is Form form)
