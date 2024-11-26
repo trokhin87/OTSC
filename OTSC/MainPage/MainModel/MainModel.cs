@@ -92,7 +92,7 @@ namespace OTSC.MainPage.MainModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Не удалось добавить данные в Бд", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Не удалось удалить данные из Бд", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -110,13 +110,16 @@ namespace OTSC.MainPage.MainModel
                 if (!(result != null && Convert.ToInt64(result) > 0)) // Проверяем количество
                 {
                    await AddFriendAsync(id, username, dateTime, interest);
-                   await DeleteFriendAsync(id,choose);
+                    string que = "DELETE FROM friend_list WHERE friend_username=@username";
+                    var comm=new NpgsqlCommand( que, connection);
+                    comm.Parameters.AddWithValue("@username", choose);
+                    var resik= await comm.ExecuteScalarAsync();
                     return true;
                 }
                 string query_update = "Update friend_list SET date_of_birth=@dateTime, interested=@interest WHERE friend_username=@username";
                 await using var command_add = new NpgsqlCommand(query_update, connection);
                 command_add.Parameters.AddWithValue("@id", id);
-                command_add.Parameters.AddWithValue("@username", username);
+                command_add.Parameters.AddWithValue("@username", username); 
                 command_add.Parameters.AddWithValue("dateTime", dateTime);
                 command_add.Parameters.AddWithValue("interest", interest);
                 command_add.ExecuteNonQuery();
@@ -124,7 +127,7 @@ namespace OTSC.MainPage.MainModel
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Не удалось добавить данные в Бд", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Не удалось  данные в Бд", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }

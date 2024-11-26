@@ -66,12 +66,13 @@ namespace OTSC.MainPage.MainPresenter
                     MessageBox.Show("Не удалось обновление");
                     return;
                 }
-            }
-            bool isCool = await _model.UpdateFriendAsync(_id, _mainView.friendName, _mainView.selectedTime, _mainView.interested, choose);
-            if (isCool)
-            {
 
-                await LoadFriendsAsync(sender, e);
+                bool isCool = await _model.UpdateFriendAsync(_id, _mainView.friendName, _mainView.selectedTime, _mainView.interested, choose);
+                if (isCool)
+                {
+
+                    await LoadFriendsAsync(sender, e);
+                }
             }
         }
 

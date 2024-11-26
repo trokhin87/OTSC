@@ -24,7 +24,7 @@ namespace OTSC.MainPage.MainView
             btn_ezhednevnik.Click += (s, e) => btnToEzhednevnik?.Invoke(this, EventArgs.Empty);
             btn_add.Click += (s, e) => btnAdd?.Invoke(this, EventArgs.Empty);
             btn_delete.Click += (s, e) => btnDelete?.Invoke(this, EventArgs.Empty);
-            btn_update.Click += (s, e) => btnUpdate?.Invoke(this, EventArgs.Empty);
+            btn_update.Click += (s, e) => btnUpdate?.Invoke(DataTableFriends, EventArgs.Empty);
             ClearBtn.Click += (s, e) => btnClear?.Invoke(this, EventArgs.Empty);
             DataTableFriends.SelectionChanged += (s, e) => cellStr?.Invoke(DataTableFriends,  e);
         }
