@@ -59,7 +59,6 @@ namespace OTSC.MainPage.MainView
         {
             DataTableFriends.DataSource = table;
         }
-        
 
 
         //Делаем видимость страницы трушной

@@ -39,16 +39,40 @@ namespace OTSC.MainPage.MainPresenter
             {
                 MessageBox.Show("Введите данные о друге", "Ошибка заполнения данных", MessageBoxButtons.OK);
             }
-            bool isCool = await _model.DeleteFriendAsync(_id, _mainView.friendName, _mainView.selectedTime, _mainView.interested);
+            bool isCool = await _model.DeleteFriendAsync(_id, _mainView.friendName);
             if (isCool)
             {
                 await LoadFriendsAsync(sender, e);
             }
         }
 
-        private void OnUpdateBtnClicked(object? sender, EventArgs e)
+        private async void OnUpdateBtnClicked(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (_mainView.interested == string.Empty || _mainView.friendName == string.Empty)
+            {
+                MessageBox.Show("Введите данные о друге", "Ошибка заполнения данных", MessageBoxButtons.OK);
+            }
+            string choose = null;
+            if (sender is DataGridView dataGridView && dataGridView.CurrentRow != null)
+            {
+                // Получаем данные из текущей строки
+                var selectedRow = dataGridView.CurrentRow;
+                if (selectedRow.Cells["friend_username"].Value != null)
+                {
+                    choose = selectedRow.Cells["friend_username"].Value.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Не удалось обновление");
+                    return;
+                }
+            }
+            bool isCool = await _model.UpdateFriendAsync(_id, _mainView.friendName, _mainView.selectedTime, _mainView.interested, choose);
+            if (isCool)
+            {
+
+                await LoadFriendsAsync(sender, e);
+            }
         }
 
         private async void OnAddBtnClicked(object? sender, EventArgs e)

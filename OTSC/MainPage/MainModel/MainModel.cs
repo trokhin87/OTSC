@@ -77,7 +77,7 @@ namespace OTSC.MainPage.MainModel
         }
 
 
-        public async Task<bool> DeleteFriendAsync(long id, string username, DateTime dateTime, string interest)
+        public async Task<bool> DeleteFriendAsync(long id, string username)
         {
             var connect = new DataBase.DataReader(@"C:\Users\trokh\source\repos\OTSC\OTSC\DataBase\ConfigData.json");
             try
@@ -96,7 +96,7 @@ namespace OTSC.MainPage.MainModel
                 return false;
             }
         }
-        public async Task<bool> UpdateFriendAsync(long id, string username, DateTime dateTime, string interest)
+        public async Task<bool> UpdateFriendAsync(long id, string username, DateTime dateTime, string interest,string choose)
         {
             var connect = new DataBase.DataReader(@"C:\Users\trokh\source\repos\OTSC\OTSC\DataBase\ConfigData.json");
             try
@@ -109,11 +109,12 @@ namespace OTSC.MainPage.MainModel
                 var result = await command.ExecuteScalarAsync();
                 if (!(result != null && Convert.ToInt64(result) > 0)) // Проверяем количество
                 {
-                    MessageBox.Show("Пользователь с этим username уже добавлен", "Ошибка добавления");
-                    return false;
+                   await AddFriendAsync(id, username, dateTime, interest);
+                   await DeleteFriendAsync(id,choose);
+                    return true;
                 }
-                string query_add = "Update friend_list SET friend_username=@username";
-                await using var command_add = new NpgsqlCommand(query_add, connection);
+                string query_update = "Update friend_list SET date_of_birth=@dateTime, interested=@interest WHERE friend_username=@username";
+                await using var command_add = new NpgsqlCommand(query_update, connection);
                 command_add.Parameters.AddWithValue("@id", id);
                 command_add.Parameters.AddWithValue("@username", username);
                 command_add.Parameters.AddWithValue("dateTime", dateTime);
