@@ -29,10 +29,4 @@
     </EmbeddedResource>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="EzehednevikPage\" />
-    <Folder Include="GeneratorPage\ModelGenerator\" />
-    <Folder Include="GeneratorPage\PresenterGenerator\" />
-  </ItemGroup>
-
 </Project>

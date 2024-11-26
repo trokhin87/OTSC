@@ -25,6 +25,8 @@ namespace OTSC.LoginPage.LoginPresenter
 
             _view.btnLogin += (s, e) => OnLoginBtnClicked(s, e);
             _view.btnRegister += (s, e) => OnRegisterBtnChecked(s, e);
+
+            _view.btnSendPassword += (s, e) => OnSendMailClick(s, e);
         }
   
         private void OnShowBtnChecekd(object sender,EventArgs e)
@@ -71,7 +73,8 @@ namespace OTSC.LoginPage.LoginPresenter
            bool isvalid=await _model.CheckAndOpenConnectionLoginAsync(_view.Login, _view.Password);
             if(isvalid)
             {
-                _view.NavigatetoPage();
+                long name=long.Parse(_view.Login);
+                _view.NavigatetoPage(name);
             }
         }
         private async void OnRegisterBtnChecked(object sender,EventArgs e)
@@ -88,8 +91,20 @@ namespace OTSC.LoginPage.LoginPresenter
             bool isvalid=await _model.CheckAndOpenRegisterAsync(_view.Login, _view.Password);
             if (isvalid)
             {
-                _view.NavigatetoPage();
+                long name = long.Parse(_view.Login);
+                _view.NavigatetoPage(name);
             }
+        }
+        private async void OnSendMailClick(object sender,EventArgs e)
+        {
+            string generator_password = _model.GeneratorPassword();
+            string searchedMail= await _model.FindMailAsync(_view.Login);
+            await _model.SendEmailAsync(searchedMail, generator_password);
+            bool isEdit = await _model.UpdatePasswordAsync(_view.Login, generator_password);
+            if(isEdit)
+            {
+                _view.SuccessMessage(searchedMail);
+            }    
         }
     }
 }
