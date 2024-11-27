@@ -42,7 +42,8 @@ namespace OTSC.LoginPage.LoginView
         public void NavigatetoPage(long ID)
         {
             var mainPage=new MainPage.MainView.MainPage();
-            var presenterMain = new MainPage.MainPresenter.MainPresenter(mainPage,ID);
+            var generator = new GeneratorPage();
+            var presenterMain = new MainPage.MainPresenter.MainPresenter(mainPage,ID,generator,generator);
             mainPage.Show();
             this.Hide();
         }
