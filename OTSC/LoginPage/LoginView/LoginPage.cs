@@ -41,16 +41,15 @@ namespace OTSC.LoginPage.LoginView
 
         public void NavigatetoPage(long ID)
         {
-            var mainPage=new MainPage.MainView.MainPage();
-            var presenterMain = new MainPage.MainPresenter.MainPresenter(mainPage,ID);
+            var mainPage = new MainPage.MainView.MainPage();
+            var presenterMain = new MainPage.MainPresenter.MainPresenter(mainPage, ID);
             mainPage.Show();
             this.Hide();
         }
         public void SuccessMessage(string mail)
         {
-            label_info.Text =$"Новый пароль отправлен на почту: {mail}"; 
+            label_info.Text = $"Новый пароль отправлен на почту: {mail}";
             label_info.Visible = true;
         }
-
     }
 }

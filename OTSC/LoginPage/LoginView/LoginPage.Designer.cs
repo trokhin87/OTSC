@@ -28,21 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginPage));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2GradientCircleButton1 = new Guna.UI2.WinForms.Guna2GradientCircleButton();
-            guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             icon = new PictureBox();
             txtLogin = new Guna.UI2.WinForms.Guna2TextBox();
             txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
@@ -70,35 +68,15 @@
             guna2GradientCircleButton1.ForeColor = Color.White;
             guna2GradientCircleButton1.Location = new Point(-205, -29);
             guna2GradientCircleButton1.Name = "guna2GradientCircleButton1";
-            guna2GradientCircleButton1.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2GradientCircleButton1.ShadowDecoration.CustomizableEdges = customizableEdges1;
             guna2GradientCircleButton1.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             guna2GradientCircleButton1.Size = new Size(523, 633);
             guna2GradientCircleButton1.TabIndex = 0;
             // 
-            // guna2HtmlLabel1
-            // 
-            guna2HtmlLabel1.BackColor = Color.Gainsboro;
-            guna2HtmlLabel1.Font = new Font("Verdana", 18.75F, FontStyle.Bold | FontStyle.Italic);
-            guna2HtmlLabel1.Location = new Point(200, 223);
-            guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            guna2HtmlLabel1.Size = new Size(222, 40);
-            guna2HtmlLabel1.TabIndex = 1;
-            guna2HtmlLabel1.Text = "Telegram ID";
-            // 
-            // guna2HtmlLabel2
-            // 
-            guna2HtmlLabel2.BackColor = Color.Gainsboro;
-            guna2HtmlLabel2.Font = new Font("Verdana", 18.75F, FontStyle.Bold | FontStyle.Italic);
-            guna2HtmlLabel2.Location = new Point(223, 290);
-            guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            guna2HtmlLabel2.Size = new Size(171, 40);
-            guna2HtmlLabel2.TabIndex = 2;
-            guna2HtmlLabel2.Text = "Password";
-            // 
             // icon
             // 
             icon.Image = (Image)resources.GetObject("icon.Image");
-            icon.Location = new Point(518, 77);
+            icon.Location = new Point(468, 50);
             icon.Name = "icon";
             icon.Size = new Size(269, 196);
             icon.SizeMode = PictureBoxSizeMode.Zoom;
@@ -108,45 +86,47 @@
             // txtLogin
             // 
             txtLogin.BorderRadius = 15;
-            txtLogin.CustomizableEdges = customizableEdges13;
+            txtLogin.CustomizableEdges = customizableEdges2;
             txtLogin.DefaultText = "";
             txtLogin.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtLogin.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtLogin.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtLogin.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtLogin.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtLogin.Font = new Font("Segoe UI", 9F);
+            txtLogin.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
             txtLogin.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtLogin.Location = new Point(495, 223);
-            txtLogin.Margin = new Padding(3, 4, 3, 4);
+            txtLogin.Location = new Point(424, 214);
+            txtLogin.Margin = new Padding(4, 5, 4, 5);
             txtLogin.Name = "txtLogin";
             txtLogin.PasswordChar = '\0';
-            txtLogin.PlaceholderText = "";
+            txtLogin.PlaceholderForeColor = Color.DimGray;
+            txtLogin.PlaceholderText = "Telegram ID";
             txtLogin.SelectedText = "";
-            txtLogin.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            txtLogin.Size = new Size(285, 40);
+            txtLogin.ShadowDecoration.CustomizableEdges = customizableEdges3;
+            txtLogin.Size = new Size(356, 50);
             txtLogin.TabIndex = 4;
             // 
             // txtPassword
             // 
             txtPassword.BorderRadius = 15;
-            txtPassword.CustomizableEdges = customizableEdges15;
+            txtPassword.CustomizableEdges = customizableEdges4;
             txtPassword.DefaultText = "";
             txtPassword.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtPassword.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtPassword.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtPassword.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtPassword.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.Font = new Font("Segoe UI", 9F);
+            txtPassword.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
             txtPassword.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtPassword.Location = new Point(495, 290);
-            txtPassword.Margin = new Padding(3, 4, 3, 4);
+            txtPassword.Location = new Point(424, 280);
+            txtPassword.Margin = new Padding(4, 5, 4, 5);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '\0';
-            txtPassword.PlaceholderText = "";
+            txtPassword.PlaceholderForeColor = Color.DimGray;
+            txtPassword.PlaceholderText = "Password";
             txtPassword.SelectedText = "";
-            txtPassword.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            txtPassword.Size = new Size(285, 40);
+            txtPassword.ShadowDecoration.CustomizableEdges = customizableEdges5;
+            txtPassword.Size = new Size(356, 50);
             txtPassword.TabIndex = 5;
             // 
             // btn_showPass
@@ -171,7 +151,7 @@
             // 
             clear_Button.BorderRadius = 15;
             clear_Button.BorderThickness = 1;
-            clear_Button.CustomizableEdges = customizableEdges17;
+            clear_Button.CustomizableEdges = customizableEdges6;
             clear_Button.DisabledState.BorderColor = Color.DarkGray;
             clear_Button.DisabledState.CustomBorderColor = Color.DarkGray;
             clear_Button.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -181,7 +161,7 @@
             clear_Button.ForeColor = Color.Black;
             clear_Button.Location = new Point(826, 223);
             clear_Button.Name = "clear_Button";
-            clear_Button.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            clear_Button.ShadowDecoration.CustomizableEdges = customizableEdges7;
             clear_Button.Size = new Size(134, 41);
             clear_Button.TabIndex = 7;
             clear_Button.Text = "Очистить";
@@ -190,7 +170,7 @@
             // 
             btn_Register.BorderRadius = 15;
             btn_Register.BorderThickness = 1;
-            btn_Register.CustomizableEdges = customizableEdges19;
+            btn_Register.CustomizableEdges = customizableEdges8;
             btn_Register.DisabledState.BorderColor = Color.DarkGray;
             btn_Register.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_Register.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -198,9 +178,9 @@
             btn_Register.FillColor = Color.DarkSeaGreen;
             btn_Register.Font = new Font("Segoe UI", 9F);
             btn_Register.ForeColor = Color.Black;
-            btn_Register.Location = new Point(646, 352);
+            btn_Register.Location = new Point(612, 346);
             btn_Register.Name = "btn_Register";
-            btn_Register.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            btn_Register.ShadowDecoration.CustomizableEdges = customizableEdges9;
             btn_Register.Size = new Size(134, 41);
             btn_Register.TabIndex = 9;
             btn_Register.Text = "Регистрация";
@@ -219,7 +199,7 @@
             // 
             btn_Login.BorderRadius = 15;
             btn_Login.BorderThickness = 1;
-            btn_Login.CustomizableEdges = customizableEdges21;
+            btn_Login.CustomizableEdges = customizableEdges10;
             btn_Login.DisabledState.BorderColor = Color.DarkGray;
             btn_Login.DisabledState.CustomBorderColor = Color.DarkGray;
             btn_Login.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -227,9 +207,9 @@
             btn_Login.FillColor = Color.DarkSeaGreen;
             btn_Login.Font = new Font("Segoe UI", 9F);
             btn_Login.ForeColor = Color.Black;
-            btn_Login.Location = new Point(506, 352);
+            btn_Login.Location = new Point(468, 346);
             btn_Login.Name = "btn_Login";
-            btn_Login.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            btn_Login.ShadowDecoration.CustomizableEdges = customizableEdges11;
             btn_Login.Size = new Size(134, 41);
             btn_Login.TabIndex = 12;
             btn_Login.Text = "Войти";
@@ -237,7 +217,7 @@
             // label_mail
             // 
             label_mail.AutoSize = true;
-            label_mail.Location = new Point(836, 367);
+            label_mail.Location = new Point(826, 357);
             label_mail.Name = "label_mail";
             label_mail.Size = new Size(124, 20);
             label_mail.TabIndex = 13;
@@ -270,8 +250,6 @@
             Controls.Add(txtPassword);
             Controls.Add(txtLogin);
             Controls.Add(icon);
-            Controls.Add(guna2HtmlLabel2);
-            Controls.Add(guna2HtmlLabel1);
             Controls.Add(guna2GradientCircleButton1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginPage";
@@ -286,8 +264,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2GradientCircleButton guna2GradientCircleButton1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
         private PictureBox icon;
         private Guna.UI2.WinForms.Guna2TextBox txtLogin;
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;

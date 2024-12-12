@@ -26,12 +26,12 @@ namespace OTSC.MainPage.MainView
             btn_delete.Click += (s, e) => btnDelete?.Invoke(this, EventArgs.Empty);
             btn_update.Click += (s, e) => btnUpdate?.Invoke(DataTableFriends, EventArgs.Empty);
             ClearBtn.Click += (s, e) => btnClear?.Invoke(this, EventArgs.Empty);
-            DataTableFriends.SelectionChanged += (s, e) => cellStr?.Invoke(DataTableFriends,  e);
+            DataTableFriends.SelectionChanged += (s, e) => cellStr?.Invoke(DataTableFriends, e);
         }
 
-        public string friendName { get => txt_name.Text; set => txt_name.Text=value; }
-        public string interested { get => txt_interes.Text; set => txt_interes.Text=value; }
-        public DateTime selectedTime { get => date_picker.Value; set => date_picker.Value=value; }
+        public string friendName { get => txt_name.Text; set => txt_name.Text = value; }
+        public string interested { get => txt_interes.Text; set => txt_interes.Text = value; }
+        public DateTime selectedTime { get => date_picker.Value; set => date_picker.Value = value; }
 
         public event EventHandler btnClose;
         public event EventHandler btnToGenerate;
@@ -79,9 +79,11 @@ namespace OTSC.MainPage.MainView
         //очистка полей
         public void ClearLines()
         {
-            txt_interes.Text=string.Empty;
-            txt_name.Text=string.Empty;
-            date_picker.Value=DateTime.Now;
+            txt_interes.Text = string.Empty;
+            txt_name.Text = string.Empty;
+            date_picker.Value = DateTime.Now;
         }
+
+        
     }
 }

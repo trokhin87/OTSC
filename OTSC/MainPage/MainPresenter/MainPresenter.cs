@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using OTSC.MainPage.MainModel;
-using OTSC.MainPage.MainView;
-using System.Diagnostics;
-using System.Text.RegularExpressions;
+﻿using OTSC.MainPage.MainView;
 using System.Data;
 namespace OTSC.MainPage.MainPresenter
 {
